@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Top from '@/pages/Top'
 import Message from '@/pages/Message'
+import History from '@/pages/History'
+import Download from '@/pages/Download'
 
 // コンポーネント登録
 import Header from '@/components/Header'
@@ -20,13 +22,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Top',
+      name: 'top',
       component: Top
     },
     {
       path: '/message',
-      name: 'Message',
+      name: 'message',
       component: Message
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: History
+    },
+    {
+      path: '/Download',
+      name: 'download',
+      component: Download
     }
   ]
 })

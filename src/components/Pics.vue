@@ -11,7 +11,7 @@ export default {
   name: 'Pics',
   data () {
     return {
-      cardNum: [2, 2, 2, 2, 2, 2],
+      cardNum: [6, 7, 7, 7, 7, 7],
       getRandomCard: function (max) {
         return Math.floor(Math.random() * (max - 1 + 1)) + 1
       }
@@ -29,5 +29,28 @@ export default {
 }
 .card img {
   height: 350px;
+}
+
+/*animate*/
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  to {
+    transform: perspective(400px);
+  }
 }
 </style>
