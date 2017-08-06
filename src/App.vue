@@ -20,7 +20,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 30px;
+  /*margin-top: 30px;*/
   box-sizing: border-box;
 }
 body {
@@ -67,5 +67,8 @@ p {
 @keyframes show {
   100% { opacity: 1; }
   0% { opacity: 0; }
+}
+a:-webkit-any-link {
+  text-decoration: none;
 }
 </style>

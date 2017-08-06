@@ -11,5 +11,22 @@ export default {
     if (!max) max = 2048
     if (!min) min = 1
     return min + Math.floor(Math.random() * (max - min)) + 1
+  },
+  getRandomIntUnique (count) {
+    let generated = []
+    let generatedCount = generated.length
+    for (let i = 0; i < count; i++) {
+      let candidate = Math.floor(Math.random() * count) + 1
+      for (let j = 0; j < generatedCount; j++) {
+        if (candidate === generated[j]) {
+          candidate = Math.floor(Math.random() * count) + 1
+          j = -1
+        }
+      }
+      candidate = ('000' + candidate).slice(-3)
+      generated[i] = candidate
+      generatedCount++
+    }
+    return generated
   }
 }

@@ -1,9 +1,11 @@
 <template>
-  <header class="cf">
-    <img class="logo fleft" src="../assets/logo.png">
+  <header class="cf" :class="{'fixed': $route.path === '/message'}">
+  <div class="container">
+    <router-link to="/"><img class="logo fleft" src="../assets/logo.png"></router-link>
     <ul class="menu fright">
-      <li v-for="m in menu"><sub>{{ m.sub }}</sub><p><font :color="m.color">{{ m.font }}</font>{{ m.p }}</p><span :style="'background-color:'+m.color"></span></li>
+      <router-link  v-for="m in menu" :to="m.path" exact><li><sub>{{ m.sub }}</sub><p><font :color="m.color">{{ m.font }}</font>{{ m.p }}</p><span :style="'background-color:'+m.color"></span></li></router-link>
     </ul>
+  </div>
   </header>
 </template>
 
@@ -14,14 +16,16 @@ export default {
   data () {
     return {
       menu: [
-        {sub: 'サンクスメッセージ', font: 'T', p: 'hanksMessage', color: Utils.COLORS.pink, path: 'thanks'},
-        {sub: 'ヒストリー', font: 'H', p: 'istory', color: Utils.COLORS.blue},
-        {sub: 'ダウンロード', font: 'D', p: 'ownload', color: Utils.COLORS.purple}
+        {sub: 'サンクスメッセージ', font: 'T', p: 'hanksMessage', color: Utils.COLORS.pink, path: 'message'},
+        {sub: 'ヒストリー', font: 'H', p: 'istory', color: Utils.COLORS.blue, path: 'history'},
+        {sub: 'ダウンロード', font: 'D', p: 'ownload', color: Utils.COLORS.purple, path: 'download'}
       ]
     }
   },
   methods: {
+    changePage: function () {
 
+    }
   }
 }
 </script>
@@ -29,6 +33,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 header {
+  padding-top: 30px;
+}
+header.fixed {
+  /* 固定 */
+  width: 100%;
+  background: #FFF;
+  position: fixed;
+  z-index: 10;
+}
+.container {
   width: 1000px;
   margin: 0 auto;
 }
@@ -37,8 +51,8 @@ header {
 }
 .menu {
   font-family: 'Montserrat Alternates', sans-serif;
-  color: #6e6e6e;
   margin-top: 15px;
+  margin-bottom: -10px;
 }
 .menu li {
   margin-left: 30px;
@@ -47,11 +61,13 @@ header {
 }
 .menu sub {
   font-size: 12px;
+  color: #6e6e6e;
 }
 .menu p {
   font-weight: bold;
   font-size: 15px;
   letter-spacing: 1px;
+  color: #6e6e6e;
 }
 .menu span {
   display: inline-block;
@@ -63,6 +79,9 @@ header {
 }
 .menu li:hover span {
   opacity: 1;
+}
+.menu .router-link-active li span {
+  opacity: 1; 
 }
 
 </style>

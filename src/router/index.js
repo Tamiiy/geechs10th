@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Top from '@/pages/Top'
+import Message from '@/pages/Message'
 
 // コンポーネント登録
 import Header from '@/components/Header'
@@ -19,8 +20,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'top',
+      name: 'Top',
       component: Top
+    },
+    {
+      path: '/message',
+      name: 'Message',
+      component: Message
     }
   ]
 })
