@@ -9,6 +9,10 @@ import Footer from '@/components/Footer'
 Vue.component('Footer', Footer)
 import Pics from '@/components/Pics'
 Vue.component('Pics', Pics)
+import Fuwafuwa from '@/components/Fuwafuwa'
+Vue.component('Fuwafuwa', Fuwafuwa)
+import Loading from '@/components/Loading'
+Vue.component('Loading', Loading)
 
 Vue.use(Router)
 export default new Router({

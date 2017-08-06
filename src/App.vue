@@ -26,6 +26,7 @@ export default {
 body {
   font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Noto Sans CJK JP', 游ゴシック体, 'Yu Gothic', YuGothic, Meiryo, 'メイリオ';
   color: #424141;
+  margin: 0;
 }
 ul {
   list-style-type: none;
@@ -57,5 +58,14 @@ p {
 }
 .cf {
   *zoom: 1;
+}
+
+@keyframes hide {
+    0% { opacity: 1; }
+  100% { opacity: 0; display: none;}
+}
+@keyframes show {
+  100% { opacity: 1; }
+  0% { opacity: 0; }
 }
 </style>

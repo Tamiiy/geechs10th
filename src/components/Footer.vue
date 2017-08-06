@@ -25,7 +25,7 @@ export default {
 <style scoped>
 footer {
   width: 1000px;
-  margin: 50px auto 5px;
+  margin: 50px auto 30px;
   color: #6e6e6e;
 }
 p {

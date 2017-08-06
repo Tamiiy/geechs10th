@@ -1,8 +1,11 @@
 <template>
 <div id="top">
-  <img class="catch" src="../assets/top/top_catch.png">
-  <p>皆さまに支えられて、ギークスは10周年を迎えました。<br />これまでも、これからも「感謝」を創造しつづけます。</p>
-  <Pics></Pics>
+  <Fuwafuwa :class="{back : is_finish}"></Fuwafuwa>
+  <div class="wrapper">
+    <img class="catch" src="../assets/top/top_catch.png">
+    <p>皆さまに支えられて、ギークスは10周年を迎えました。<br />これまでも、これからも「感謝」を創造しつづけます。</p>
+    <Pics></Pics>
+  </div>
 </div>
 </template>
 
@@ -11,8 +14,20 @@ export default {
   name: 'top',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      is_finish: false,
+      is_none: false
     }
+  },
+  created () {
+    const me = this
+    setTimeout(function () {
+      me.is_finish = true
+      setTimeout(function () {
+        me.is_none = true
+      }, 2000)
+    }, 3000)
+  },
+  methods: {
   }
 }
 </script>
@@ -25,5 +40,8 @@ export default {
 p {
   margin-top: 20px;
   font-size: 18px;
+}
+.wrapper {
+  z-index: 10;
 }
 </style>
