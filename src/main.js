@@ -6,6 +6,25 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+let isSp = (function () {
+  let ua = navigator.userAgent
+  if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+    return true
+  } else {
+    return false
+  }
+})()
+
+// すべてのコンポーネントで使える共通バリュー&メソッド
+Vue.mixin({
+  data () {
+    return {
+      isSp: isSp,
+      is_menu_open: false
+    }
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

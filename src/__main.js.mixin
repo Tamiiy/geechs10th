@@ -1,0 +1,80 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+Vue.config.productionTip = false
+
+let isSp = (function () {
+  let ua = navigator.userAgent
+  if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+    return true
+  } else {
+    return false
+  }
+})()
+
+// すべてのコンポーネントで使える共通バリュー&メソッド
+Vue.mixin({
+  data () {
+    return {
+      isSp: isSp,
+      COLORS: {
+        pink: '#ee7fae',
+        blue: '#b1cee4',
+        orange: '#ffa689',
+        purple: '#b884c6',
+        green: '#97d657',
+        gray: '#bcbcbc'
+      },
+      MENU: [
+        {sub: 'サンクスメッセージ', font: 'T', p: 'hanksMessage', color: this.COLORS.pink, path: 'message'},
+        {sub: 'ヒストリー', font: 'H', p: 'istory', color: this.COLORS.blue, path: 'history'},
+        {sub: 'ダウンロード', font: 'D', p: 'ownload', color: this.COLORS.purple, path: 'download'}
+      ]
+    }
+  },
+  methods: {
+    getRandomInt: function (max, min) {
+      if (!max) max = 2048
+      if (!min) min = 1
+      return min + Math.floor(Math.random() * (max - min)) + 1
+    },
+    getRandomIntUnique (count) {
+      let generated = []
+      let generatedCount = generated.length
+      for (let i = 0; i < count; i++) {
+        let candidate = Math.floor(Math.random() * count) + 1
+        for (let j = 0; j < generatedCount; j++) {
+          if (candidate === generated[j]) {
+            candidate = Math.floor(Math.random() * count) + 1
+            j = -1
+          }
+        }
+        candidate = ('000' + candidate).slice(-3)
+        generated[i] = candidate
+        generatedCount++
+      }
+      return generated
+    },
+    getDevice () {
+      let ua = navigator.userAgent
+      if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+        return 'sp'
+      } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+        return 'tab'
+      } else {
+        return 'other'
+      }
+    }
+  }
+})
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})

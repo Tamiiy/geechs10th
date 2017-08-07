@@ -2,7 +2,7 @@
   <header class="cf" :class="{'fixed': $route.path === '/message'}">
   <div class="container">
     <router-link to="/"><img class="logo fleft" src="../assets/logo.png"></router-link>
-    <ul class="menu fright">
+    <ul v-if="!isSp" class="menu fright">
       <router-link  v-for="m in menu" :to="m.path" exact><li><sub>{{ m.sub }}</sub><p><font :color="m.color">{{ m.font }}</font>{{ m.p }}</p><span :style="'background-color:'+m.color"></span></li></router-link>
     </ul>
   </div>
@@ -42,10 +42,6 @@ header.fixed {
   position: fixed;
   z-index: 10;
 }
-.container {
-  width: 1000px;
-  margin: 0 auto;
-}
 .logo {
   cursor: pointer;
 }
@@ -81,7 +77,16 @@ header.fixed {
   opacity: 1;
 }
 .menu .router-link-active li span {
-  opacity: 1; 
+  opacity: 1;
 }
 
+/*for SP*/
+@media (max-width: 768px) {
+  header {
+    padding: 15px 10px;
+  }
+  .container {
+    padding: 0;
+  }
+}
 </style>

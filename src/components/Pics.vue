@@ -1,8 +1,15 @@
 <template>
   <ul class="pics">
-    <li class="card" v-for="(max,i) in cardNum">
-      <img :src="require('../assets/staff/' + (i+1) + '_0' + getRandomCard(max) + '.png')">
-    </li>
+    <transition-group 
+      v-bind:css="false" 
+      v-on:before-enter="beforeEnter" 
+      v-on:enter="enter" 
+      tag="li" 
+      class="card" 
+      v-for="(max,i) in cardNum"
+    >
+      <img :key="i" :data-index="i" :src="require('../assets/staff/' + (i+1) + '_0' + getRandomCard(max) + '.png')" v-transition>
+    </transition-group>
   </ul>
 </template>
 
@@ -12,9 +19,29 @@ export default {
   data () {
     return {
       cardNum: [6, 7, 7, 7, 7, 7],
+      cardSet: [],
       getRandomCard: function (max) {
         return Math.floor(Math.random() * (max - 1 + 1)) + 1
       }
+    }
+  },
+  created () {
+    // for(let i in this.cardNum) {
+    //   this.cardSet = this.getRandomCard()
+    // }
+  },
+  methods: {
+    beforeEnter (el) {
+      // 入ってこないw
+      el.style.opacity = 0
+      el.style.height = 0
+    },
+    enter (el, done) {
+      // var delay = (el.dataset.index - this.beforeIndex()) * 150
+      var delay = 150
+      setTimeout(function () {
+        el.className = 'fadeInUp'
+      }, delay)
     }
   }
 }

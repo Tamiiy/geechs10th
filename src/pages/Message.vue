@@ -95,10 +95,6 @@ export default {
   background-color: #f8ccdf;
   padding: 50px 0;
 }
-.container {
-  width: 1000px;
-  margin: 0 auto;
-}
 .content .container {
   margin-top: 370px;
 }

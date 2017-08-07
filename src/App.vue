@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{noScroll: is_menu_open}">
     <Header></Header>
     <article>
       <router-view></router-view>
     </article>
-    <Footer></Footer>
+    <Footer v-if="!isSp"></Footer>
+    <SPMenu v-if="isSp"></SPMenu>
   </div>
 </template>
 
@@ -20,7 +21,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /*margin-top: 30px;*/
   box-sizing: border-box;
 }
 body {
@@ -59,7 +59,6 @@ p {
 .cf {
   *zoom: 1;
 }
-
 @keyframes hide {
     0% { opacity: 1; }
   100% { opacity: 0; display: none;}
@@ -70,5 +69,20 @@ p {
 }
 a:-webkit-any-link {
   text-decoration: none;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/*for SP*/
+@media (max-width: 768px) {
+  #app {
+    margin-bottom: 44px;
+  }
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
 }
 </style>

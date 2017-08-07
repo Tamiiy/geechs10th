@@ -16,6 +16,8 @@ import Fuwafuwa from '@/components/Fuwafuwa'
 Vue.component('Fuwafuwa', Fuwafuwa)
 import Loading from '@/components/Loading'
 Vue.component('Loading', Loading)
+import SPMenu from '@/components/SPMenu'
+Vue.component('SPMenu', SPMenu)
 
 Vue.use(Router)
 export default new Router({

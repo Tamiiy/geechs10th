@@ -1,14 +1,14 @@
 <template>
   <footer class="cf">
-    <p class="fleft">Copyright (C) 2013 geechs Inc. All rights reserved</p>
     <div class="fright">
+      <img class="social fb" src="../assets/common/icon_fb.png">
+      <img class="social tw" src="../assets/common/icon_tw.png">
       <ul class="corporate">
         <li><img src="../assets/common/logo_geechs.png"></li>
         <li>コーポレートサイト →</li>
       </ul>
-      <img class="social fb" src="../assets/common/icon_fb.png">
-      <img class="social tw" src="../assets/common/icon_tw.png">
     </div>
+    <p class="fleft">Copyright (C) 2013 geechs Inc. All rights reserved</p>
   </footer>
 </template>
 
@@ -56,5 +56,31 @@ img.social {
   height: 26px;
   vertical-align: middle;
   margin: 2px 0 2px 10px;
+}
+
+/*for SP*/
+@media (max-width: 768px) {
+  footer {
+    width: 100%;
+  }
+  .fright {
+    float :none;
+  }
+  img.social {
+    height: 36px;
+    vertical-align: middle;
+    margin: 2px 10px 2px;
+  }
+  ul.corporate {
+    float :none;
+    margin: 30px auto;
+    background-color: #FFF;
+  }
+  .fleft {
+    float :none;
+  }
+  p {
+    color: #FFF;
+  }
 }
 </style>
