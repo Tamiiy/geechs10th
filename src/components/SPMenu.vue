@@ -37,15 +37,15 @@ export default {
 #SPMenu {
   background-color: #bcbcbc;
   height: calc(100vh - 90px);
-  top: calc(100vh - 44px);
+  bottom: calc(-100vh + 90px + 44px);
   position: fixed;
   color: #FFF;
-  transition: top .3s ease-out;
+  transition: bottom .3s ease-out;
   width: 100%;
   z-index: 1000;
 }
 #SPMenu.open {
-  top: 90px;
+  bottom: 0;
 }
 .head {
   background: url(../assets/common/icon_menu_normal.png) no-repeat center 5px;
