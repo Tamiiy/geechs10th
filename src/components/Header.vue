@@ -1,10 +1,11 @@
 <template>
-  <header class="cf" :class="{'fixed': $route.path === '/message'}">
+  <header class="cf" :class="{'fixed': $route.path === '/message' && !isSp}">
   <div class="container">
     <router-link to="/top"><img class="logo fleft" src="../assets/logo.png"></router-link>
     <ul v-if="!isSp" class="menu fright">
       <router-link  v-for="m in menu" :to="m.path" exact><li><sub>{{ m.sub }}</sub><p><font :color="m.color">{{ m.font }}</font>{{ m.p }}</p><span :style="'background-color:'+m.color"></span></li></router-link>
     </ul>
+    <img class="logoGeechs" v-if="isSp" src="../assets/common/logo_geechs.png">
   </div>
   </header>
 </template>
@@ -87,6 +88,12 @@ header.fixed {
   }
   .container {
     padding: 0;
+  }
+  .logoGeechs {
+    width: 20vw;
+    float: right;
+    margin-right: 10px;
+    margin-top: 20px;
   }
 }
 </style>

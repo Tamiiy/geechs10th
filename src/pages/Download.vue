@@ -7,21 +7,36 @@
   </div>
   <div class="content">
   <div class="container cf">
-    <img src="../assets/download/dl_wallpaper.jpg" class="left">
     <div class="right">
       <h3>10周年を記念して、<br/>
-スマートフォン専用の壁紙をつくりました。</h3>
+スマートフォン専用の<br v-if="isSp">壁紙をつくりました。</h3>
       <p class="big">ご自分の機種に合わせてダウンロードしてご利用ください。</p>
       <p class="caution">※PCでもダウンロードはできますが、<br/>
 スマートフォン用サイズのみの配布になっております。</p>
       
+      <div v-if="!isSp">
+        <h4>カクテル王子（プリンス）キャラクター集合！</h4>
+        <div class="btns">
+          <span>iPhone7</span>
+          <span>iPhonePlus</span>
+          <span>Android</span>
+        </div>
+
+        <div class="share">
+          <label>このページをシェア!</label>
+          <img src="../assets/download/dl_fb.png">
+          <img src="../assets/download/dl_tw.png">
+        </div>
+      </div>
+    </div>
+    <img src="../assets/download/dl_wallpaper.jpg" class="left">
+    <div class="wall" v-if="isSp">
       <h4>カクテル王子（プリンス）キャラクター集合！</h4>
       <div class="btns">
         <span>iPhone7</span>
         <span>iPhonePlus</span>
         <span>Android</span>
       </div>
-
       <div class="share">
         <label>このページをシェア!</label>
         <img src="../assets/download/dl_fb.png">
@@ -135,5 +150,68 @@ p.caution {
   vertical-align: middle;
   font-size: .8rem;
   font-weight: bold;
+}
+
+/*for SP*/
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1.3rem;
+  }
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  .content .container {
+    background-size: 130px auto;
+    background-position: right 15px top;
+  }
+  .title {
+    float: none;
+    width: 90%;
+    margin: 0;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  p.big {
+    margin-top: 30px;
+  }
+  p.caution {
+    margin-top: 15px;
+  }
+  img.left {
+    width: calc(50% - 20px);
+    margin: 30px 0 15px 15px;
+    float: left;
+    border: 1px solid #DDD;
+  }
+  .right {
+    width: 100%;
+    float: none;
+    margin-top: 17px;
+    padding: 0 15px;
+  }
+  .content {
+    padding-bottom: 0;
+  }
+  .wall {
+    float: left;
+    width: calc(50% - 20px);
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  .btns span {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .share {
+    margin-top: 0;
+  }
+  h4 {
+    margin-top: 30px;
+    font-size: 1.0rem;
+  }
 }
 </style>

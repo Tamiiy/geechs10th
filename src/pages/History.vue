@@ -5,9 +5,9 @@
     <img class="title" src="../assets/history/hst_title.png">
     <div class="textBox">
       <h2>10年の感謝をこめて。</h2>
-      <h3>ギークス株式会社は今年で創業10周年を迎えました。</h3>
+      <h3>ギークス株式会社は<br v-if="isSp">今年で創業10周年を迎えました。</h3>
       <p>10周年の歩みと今後のビジョンを、<br/>
-皆さまへの感謝とともに代表取締役社長曽根原が語ります。</p>
+皆さまへの感謝とともに<br v-if="isSp">代表取締役社長曽根原が語ります。</p>
     </div>
   </div>
   </div>
@@ -66,7 +66,10 @@ export default {
   data () {
     return {}
   },
-  methods: {}
+  created () {
+  },
+  methods: {
+  }
 }
 </script>
 
@@ -122,6 +125,8 @@ p {
   text-align: left;
   margin-bottom: 20px;
   line-height: 2.1;
+  color: #444444;
+  word-break: break-all;
 }
 section {
   margin-bottom: 40px;
@@ -163,5 +168,61 @@ section.sign label {
   background: url(../assets/history/pic4.jpg) no-repeat;
   background-size: cover;
   height: 400px;
+}
+/*for SP*/
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.7rem;
+  }
+  .upper {
+    padding-bottom: 0;
+  }
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  .title {
+    float: none;
+    width: 70%;
+    margin: 0;
+  }
+  .textBox {
+    background-color: #FFF;
+    margin-top: 20px;
+    padding: 30px 15px 15px;
+  }
+  .textBox > * {
+    text-align: center;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  section {
+    padding: 0 15px;
+  }
+  img.left {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+    float: none;
+  }
+  img.right {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 15px;
+    float: none;
+  }
+  .content {
+    padding-bottom: 0;
+  }
+  .footBox {
+    display: none;
+  }
+  .footPic {
+    width: 100%;
+    height: 100px;
+  }
 }
 </style>

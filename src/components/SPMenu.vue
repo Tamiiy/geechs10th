@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <ul class="menu">
-        <router-link  v-for="m in menu" :to="m.path" exact>
+        <router-link v-for="m in menu" :to="m.path" v-on:click.native="is_menu_open = false">
           <li><p>{{ m.text }}</p></li>
         </router-link>
       </ul>
@@ -42,6 +42,7 @@ export default {
   color: #FFF;
   transition: top .3s ease-out;
   width: 100%;
+  z-index: 1000;
 }
 #SPMenu.open {
   top: 90px;

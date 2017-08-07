@@ -110,11 +110,11 @@ p {
   .card {
     width: 80vw;
     margin: 10vh auto 0;
-    height: auto;
-    min-height: 70vh;
+    height: 70vh;
   }
   .textBox {
     width: 100%;
+    height: 50%;
   }
   h2 {
     margin-top: 15px;
