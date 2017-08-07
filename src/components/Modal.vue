@@ -1,10 +1,11 @@
 <template>
   <transition name="fade">
   <div id="modal">
+    <span v-if="isSp" class="cancel sp" v-on:click="hideModal"></span>
     <div class="card cf">
       <img src="../assets/news/temp_nws_img.jpg">
       <div class="textBox">
-        <span class="cancel" v-on:click="hideModal"></span>
+        <span v-if="!isSp" class="cancel" v-on:click="hideModal"></span>
         <h2>タイトルタイトルタイトル</h2>
         <p>文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章</p>
         <a href="https://geechs.com/20160823_9th_anniversary/" target="_blank"><span class="more">more...</span></a>
@@ -103,5 +104,26 @@ p {
   padding-top: 8px;
   padding-right: 10px;
   cursor: pointer;
+}
+/*for SP*/
+@media (max-width: 768px) {
+  .card {
+    width: 80vw;
+    margin: 10vh auto 0;
+    height: auto;
+    min-height: 70vh;
+  }
+  .textBox {
+    width: 100%;
+  }
+  h2 {
+    margin-top: 15px;
+  }
+  img {
+    width: 100%;
+  }
+  .cancel.sp {
+    background-image: url(../assets/news/nws_icon_close_white.png) no-repeat right top;
+  }
 }
 </style>

@@ -46,7 +46,7 @@ p {
   font-size: 18px;
 }
 .wrapper {
-  z-index: 10;
+  z-index: 5;
   width: 1000px;
   margin: 0 auto;
   position: relative;
@@ -78,5 +78,28 @@ p {
   right: 10px;
   bottom: 22px;
   width: 30px;
+}
+
+/*for SP*/
+@media (max-width: 768px) {
+  #top {
+    padding-top: 40px;
+  }
+  .wrapper {
+    width: 100%;
+    z-index: 0;
+  }
+  .catch {
+    width: 90%;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  .news {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin: 10px auto;
+  }
 }
 </style>

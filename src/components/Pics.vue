@@ -101,4 +101,27 @@ export default {
     opacity: 1;
   }
 }
+
+/*for SP*/
+@media (max-width: 768px) {
+  .picGroup {
+    width: 20%;
+    display: inline-block;
+    margin:0 -10px 0 -10px;
+    /*margin:0;*/
+    height: 150px;
+  }
+  .card {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: perspective(100px)
+  }
+  .card img {
+    width: 100%;
+    /*animation: flipInX .3s ease-in-out both;*/
+  }
+}
 </style>
