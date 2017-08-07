@@ -1,23 +1,29 @@
 <template>
-  <ul class="pics">
+  <div class="pics">
     <transition-group 
-      v-bind:css="false" 
+      class="picGroup" 
+      name="demo" 
+      tag="ul" 
+      appear 
       v-on:before-enter="beforeEnter" 
       v-on:enter="enter" 
-      tag="li" 
-      class="card" 
-      v-for="(max,i) in cardNum"
+      v-on:leave="leave" 
+      v-for="(max,i) in cardNum" 
     >
-      <img :key="i" :data-index="i" :src="require('../assets/staff/' + (i+1) + '_0' + getRandomCard(max) + '.png')" v-transition>
+      <li v-for="j in 50" :key="(i+1)+'_'+j" :data-index="(i+1)+'_'+j" class="card">
+        <img :src="require('../assets/staff/' + (i+1) + '_0' + getRandomCard(max) + '.png')">
+      </li>
     </transition-group>
-  </ul>
+  </div>
 </template>
 
 <script>
+import Utils from '../Utils'
 export default {
   name: 'Pics',
   data () {
     return {
+      picSwitch: false,
       cardNum: [6, 7, 7, 7, 7, 7],
       cardSet: [],
       getRandomCard: function (max) {
@@ -26,22 +32,26 @@ export default {
     }
   },
   created () {
-    // for(let i in this.cardNum) {
-    //   this.cardSet = this.getRandomCard()
-    // }
+    this.picSwitch = true
+    // setInterval(function () {
+    //   this.picSwitch = !this.picSwitch
+    // }, 2000)
   },
   methods: {
     beforeEnter (el) {
-      // 入ってこないw
-      el.style.opacity = 0
-      el.style.height = 0
+      // el.style.opacity = 0
     },
     enter (el, done) {
-      // var delay = (el.dataset.index - this.beforeIndex()) * 150
-      var delay = 150
+      let ij = el.dataset.index.split('_')
+      let delay = ((ij[1] - 1) * 4000) + (250 * (Utils.getRandomInt(8)))
       setTimeout(function () {
-        el.className = 'fadeInUp'
+        el.className = 'card flipInX'
+        if (el.previousSibling) { // TODO: 本当はleave使いたいんだ。。
+          el.previousSibling.remove()
+        }
       }, delay)
+    },
+    leave (el, done) {
     }
   }
 }
@@ -51,33 +61,49 @@ export default {
 .pics {
   margin-top: 30px;
 }
-.card {
+.picGroup {
+  width: 180px;
+  height: 350px;
+  display: inline-block;
+  position: relative;
   margin:0 -25px 0 -25px;
 }
-.card img {
+.card {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
   height: 350px;
 }
-
+.card img {
+  width: 100%;
+  /*animation: flipInX .3s ease-in-out both;*/
+}
+.flipInX {
+  animation: flipInX .7s ease-in-out both;
+}
 /*animate*/
 @keyframes flipInX {
   from {
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(300px) rotate3d(1, 0, 0, 70deg);
     animation-timing-function: ease-in;
     opacity: 0;
   }
   40% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(300px) rotate3d(1, 0, 0, -4deg);
     animation-timing-function: ease-in;
   }
   60% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(300px) rotate3d(1, 0, 0, 2deg);
     opacity: 1;
   }
   80% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(300px) rotate3d(1, 0, 0, -1deg);
   }
   to {
-    transform: perspective(400px);
+    transform: perspective(300px);
+    opacity: 1;
   }
 }
 </style>

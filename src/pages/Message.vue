@@ -64,7 +64,6 @@ export default {
       // TODO: currentIndexをv-forするたびに +1 する必要がある
     },
     beforeEnter: function (el) {
-      // 入ってこないw
       el.style.opacity = 0
       el.style.height = 0
     },
@@ -96,7 +95,7 @@ export default {
   padding: 50px 0;
 }
 .content .container {
-  margin-top: 370px;
+  margin-top: 400px;
 }
 .title {
   margin-top: 25px;
