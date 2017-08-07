@@ -18,6 +18,8 @@ import Loading from '@/components/Loading'
 Vue.component('Loading', Loading)
 import SPMenu from '@/components/SPMenu'
 Vue.component('SPMenu', SPMenu)
+import Modal from '@/components/Modal'
+Vue.component('Modal', Modal)
 
 Vue.use(Router)
 export default new Router({

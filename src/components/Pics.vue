@@ -23,7 +23,6 @@ export default {
   name: 'Pics',
   data () {
     return {
-      picSwitch: false,
       cardNum: [6, 7, 7, 7, 7, 7],
       cardSet: [],
       getRandomCard: function (max) {
@@ -32,10 +31,6 @@ export default {
     }
   },
   created () {
-    this.picSwitch = true
-    // setInterval(function () {
-    //   this.picSwitch = !this.picSwitch
-    // }, 2000)
   },
   methods: {
     beforeEnter (el) {
@@ -43,7 +38,7 @@ export default {
     },
     enter (el, done) {
       let ij = el.dataset.index.split('_')
-      let delay = ((ij[1] - 1) * 4000) + (250 * (Utils.getRandomInt(8)))
+      let delay = ((ij[1] - 1) * 4000) + (250 * (Utils.getRandomInt(20) * 0.5))
       setTimeout(function () {
         el.className = 'card flipInX'
         if (el.previousSibling) { // TODO: 本当はleave使いたいんだ。。

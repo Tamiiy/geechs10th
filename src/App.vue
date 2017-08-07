@@ -2,7 +2,9 @@
   <div id="app" :class="{noScroll: is_menu_open}">
     <Header></Header>
     <article>
-      <router-view></router-view>
+      <transition name="fade" appear>
+        <router-view></router-view>
+      </transition>
     </article>
     <Footer v-if="!isSp"></Footer>
     <SPMenu v-if="isSp"></SPMenu>
@@ -16,12 +18,14 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  box-sizing: border-box;
 }
 body {
   font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Noto Sans CJK JP', 游ゴシック体, 'Yu Gothic', YuGothic, Meiryo, 'メイリオ';
@@ -73,6 +77,20 @@ a:-webkit-any-link {
 .container {
   width: 1000px;
   margin: 0 auto;
+}
+/*for 画面遷移*/
+.fade-before-leave {
+  opacity: 0;
+}
+/*.fade-enter, .fade-leave {
+  opacity: 0;
+}*/
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity .3s;
+}
+.fade-enter {
+  opacity: 0;
 }
 
 /*for SP*/

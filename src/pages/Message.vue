@@ -15,10 +15,15 @@
     <h2>ギークス社員から皆様へ感謝のメッセージ。</h2>
     <p>日ごろお世話になっている皆様へ、ひとりひとりから感謝の気持ちを伝えるメッセージ。<br/>ガチャをまわしてお読みください！</p>
     <transition-group name="staggered-fade" tag="ul" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" class="messageBox" :class="'col-'+cardNumCol">
-      <li v-for="i in (currentPage*cardTotalNum)" :key="i" :data-index="i">
+      <li v-for="i in (currentPage*cardTotalNum >= cardDataNum ? cardDataNum : currentPage*cardTotalNum)" :key="i" :data-index="i">
         <img class="card" :src="require('../assets/cards/' + cardSrc(i))">
       </li>
     </transition-group>
+    <div class="paging" v-if="currentPage > 0">
+      <img class="guide" src="../assets/message/msg_guide2.png">
+      <label>読んだメッセージ数</label>
+      <span>{{ currentPage * cardTotalNum }} / {{ cardDataNum + 1 }}</span>
+    </div>
   </div>
   </div>
 </div>
@@ -98,7 +103,7 @@ export default {
   margin-top: 400px;
 }
 .title {
-  margin-top: 25px;
+  /*margin-top: 25px;*/
   float: left;
 }
 .machine {
@@ -108,6 +113,27 @@ export default {
   height: 260px;
   float: right;
   margin-right: 150px;
+  position: relative;
+}
+.mechine__btn {
+  position: absolute;
+  width: 65px;
+  top: 162px;
+  left: 52px;
+  cursor: pointer;
+}
+.mechine__help {
+  position: absolute;
+  width: 95px;
+  top: 164px;
+  left: 120px;
+  /*animation: flash 2s ease 2s infinite;*/
+  animation: blink 2s step-end infinite alternate;
+}
+/* 点滅 */
+@keyframes blink{
+    21%,40%,61%,80%,100% { transform: rotate(-10deg); }
+    0%,20%,41%,60%,81%,99% { transform: rotate(0); }
 }
 
 /*content*/
@@ -146,5 +172,27 @@ p {
     opacity: 1;
     transform: none;
   }
+}
+.paging {
+  margin-top: 30px;
+}
+.paging .guide {
+  width: 380px;
+  display: block;
+  margin: 0 auto 10px;
+}
+.paging label {
+  padding: 10px 20px;
+  background-color: #ef7faf;
+  color: #FFF;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.paging span {
+  margin-left: 15px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ef7faf;
 }
 </style>

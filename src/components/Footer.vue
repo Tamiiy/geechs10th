@@ -1,7 +1,9 @@
 <template>
   <footer class="cf">
     <div class="fright">
-      <img class="social fb" src="../assets/common/icon_fb.png">
+      <a href="http://www.facebook.com/share.php?u=https://geechs.com/" v-on:click="fbShare" rel="nofollow">
+        <img class="social fb" src="../assets/common/icon_fb.png">
+      </a>
       <img class="social tw" src="../assets/common/icon_tw.png">
       <ul class="corporate">
         <li><img src="../assets/common/logo_geechs.png"></li>
@@ -17,6 +19,12 @@ export default {
   name: 'Footer',
   data () {
     return {}
+  },
+  methods: {
+    fbShare () {
+      window.open(encodeURI(decodeURI(this.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes')
+      return false
+    }
   }
 }
 </script>
