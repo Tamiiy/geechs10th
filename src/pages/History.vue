@@ -196,8 +196,8 @@ section.sign label {
   }
   p {
     margin-bottom: 0;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.9;
   }
   section {
     padding: 0 15px;
