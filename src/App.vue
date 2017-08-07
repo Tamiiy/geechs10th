@@ -1,12 +1,12 @@
 <template>
   <div id="app" :class="{noScroll: is_menu_open}">
-    <Header></Header>
+    <Header v-if="$route.path !== '/'"></Header>
     <article>
       <transition name="fade" appear>
         <router-view></router-view>
       </transition>
     </article>
-    <Footer v-if="!isSp"></Footer>
+    <Footer v-if="$route.path !== '/' && !isSp"></Footer>
     <SPMenu v-if="isSp"></SPMenu>
   </div>
 </template>
@@ -87,7 +87,7 @@ a:-webkit-any-link {
 }*/
 .fade-enter-active {
   opacity: 1;
-  transition: opacity .3s;
+  transition: opacity .5s;
 }
 .fade-enter {
   opacity: 0;

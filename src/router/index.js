@@ -15,7 +15,7 @@ Vue.component('Pics', Pics)
 import Fuwafuwa from '@/components/Fuwafuwa'
 Vue.component('Fuwafuwa', Fuwafuwa)
 import Loading from '@/components/Loading'
-Vue.component('Loading', Loading)
+// Vue.component('Loading', Loading)
 import SPMenu from '@/components/SPMenu'
 Vue.component('SPMenu', SPMenu)
 import Modal from '@/components/Modal'
@@ -26,6 +26,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'loading',
+      component: Loading
+    },
+    {
+      path: '/top',
       name: 'top',
       component: Top
     },

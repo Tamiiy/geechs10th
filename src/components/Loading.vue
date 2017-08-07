@@ -12,6 +12,12 @@ export default {
   name: 'loading',
   data () {
     return {}
+  },
+  created () {
+    let me = this
+    setTimeout(function () {
+      me.$router.push({path: 'top'})
+    }, 3000)
   }
 }
 </script>

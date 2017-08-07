@@ -1,5 +1,6 @@
 <template>
 <div id="top">
+  <Loading></Loading>
   <Fuwafuwa :class="{back : is_finish}"></Fuwafuwa>
   <Modal v-if="modalShow" @hide-modal="hideModal" modal-type="top"></Modal>
   <div class="wrapper">

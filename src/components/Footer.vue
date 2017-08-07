@@ -1,5 +1,5 @@
 <template>
-  <footer class="cf">
+  <footer class="cf" :class="{'none': $route.path === '/'}">
     <div class="fright">
       <a href="http://www.facebook.com/share.php?u=https://geechs.com/" v-on:click="fbShare" rel="nofollow">
         <img class="social fb" src="../assets/common/icon_fb.png">
@@ -35,6 +35,9 @@ footer {
   width: 1000px;
   margin: 50px auto 30px;
   color: #6e6e6e;
+}
+footer.none {
+  diplay: none;
 }
 p {
   font-size: 12px;
