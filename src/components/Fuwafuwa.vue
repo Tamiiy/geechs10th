@@ -34,6 +34,7 @@ export default {
   height: 80vh;
   position: absolute;
   background-color: transparent;
+  animation-duration: 3s;
 }
 #fuwafuwa.back {
   z-index: -1;
@@ -48,10 +49,10 @@ export default {
   100% { transform:translateX( -25px); transform:translateY(  0px); }
 }
 .circle {
-  width:10px;
-  height:10px;
+  width:8px;
+  height:8px;
   display: block;
-  border-radius: 5px;
+  border-radius: 4px;
   position: absolute;
   background-color: red;
 }
@@ -65,4 +66,10 @@ export default {
 .circle.peteern2 { animation-duration: 6.7s}
 .circle.peteern3 { animation-duration: 7.3s}
 .circle.peteern4 { animation-duration: 8.2s}
+
+@media (max-width: 768px) {
+  #fuwafuwa {
+    height: 100vh;
+  }
+}
 </style>

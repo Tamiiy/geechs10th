@@ -136,6 +136,14 @@ p.caution {
   box-sizing: border-box;
   font-size: .9rem;
   margin: 0 2px;
+  cursor: pointer;
+  background-color: #FFF;
+}
+.btns span:hover {
+  /*background-color: rgba(184, 132, 198, 0.3);*/
+  background-color: #b884c6;
+  color: #FFF;
+  transition: background-color .5s;
 }
 .share {
   text-align: right;

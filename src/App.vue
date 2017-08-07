@@ -7,13 +7,15 @@
       </transition>
     </article>
     <Footer v-if="$route.path !== '/' && !isSp"></Footer>
-    <SPMenu v-if="isSp"></SPMenu>
+    <SPMenu v-if="$route.path !== '/' && isSp"></SPMenu>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+  }
 }
 </script>
 
@@ -91,6 +93,10 @@ a:-webkit-any-link {
 }
 .fade-enter {
   opacity: 0;
+}
+#Loading.fade-leave-active {
+  opacity: 0;
+  transition: opacity 3s;
 }
 
 /*for SP*/

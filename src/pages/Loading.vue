@@ -1,10 +1,12 @@
 <template>
+<transition name="longFade">
 <div id="Loading">
   <div class="wrapper">
     <Fuwafuwa></Fuwafuwa>
     <img class="logo" src="../assets/common/10th_logo_large.png">
   </div>
 </div>
+</transition>
 </template>
 
 <script>
@@ -18,6 +20,8 @@ export default {
     setTimeout(function () {
       me.$router.push({path: 'top'})
     }, 3000)
+  },
+  methods: {
   }
 }
 </script>
@@ -32,9 +36,9 @@ export default {
   width: 100vw;
   height: 100vh;
 }
-#Loading.hide {
-  animation: hide 1s ease-in-out both;
-}
+/*.longFade-leave {
+  animation: hide 3s ease-in-out alternate;
+}*/
 .wrapper {
   background-color: #FFF;
   width: 100vw;
@@ -51,5 +55,13 @@ img.logo {
   z-index: 100;
   margin-top: 30vh;
   animation: vertical 2s ease-in-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+  img.logo {
+    width: 40%;
+    margin-top: 38vh;
+    animation: vertical 2s ease-in-out infinite alternate;
+  }
 }
 </style>

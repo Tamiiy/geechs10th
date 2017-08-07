@@ -8,9 +8,9 @@ export default {
     gray: '#bcbcbc'
   },
   getRandomInt: function (max, min) {
-    if (!max) max = 2048
-    if (!min) min = 1
-    return min + Math.floor(Math.random() * (max - min)) + 1
+    if (max === null || max === undefined) max = 2048
+    if (min === null || min === undefined) min = 1
+    return min + Math.floor(Math.random() * (max - min))
   },
   getRandomIntUnique (count) {
     let generated = []

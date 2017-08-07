@@ -4,6 +4,7 @@ import Top from '@/pages/Top'
 import Message from '@/pages/Message'
 import History from '@/pages/History'
 import Download from '@/pages/Download'
+import Loading from '@/pages/Loading'
 
 // コンポーネント登録
 import Header from '@/components/Header'
@@ -14,8 +15,6 @@ import Pics from '@/components/Pics'
 Vue.component('Pics', Pics)
 import Fuwafuwa from '@/components/Fuwafuwa'
 Vue.component('Fuwafuwa', Fuwafuwa)
-import Loading from '@/components/Loading'
-// Vue.component('Loading', Loading)
 import SPMenu from '@/components/SPMenu'
 Vue.component('SPMenu', SPMenu)
 import Modal from '@/components/Modal'
