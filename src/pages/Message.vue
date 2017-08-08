@@ -148,10 +148,11 @@ export default {
 
 /*content*/
 .guide {
-  width: 400px;
+  width: 430px;
 }
 h2 {
   color:#6e6e6e;
+  font-size: 1.4rem;
   text-shadow: #FFF 2px 2px 0px, #FFF -2px 2px 0px,
              #FFF 2px -2px 0px, #FFF -2px -2px 0px;
 }
