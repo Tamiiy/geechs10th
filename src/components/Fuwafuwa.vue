@@ -1,5 +1,5 @@
 <template>
-  <div id="fuwafuwa">
+  <div id="fuwafuwa" :class="{'h80': $route.path !== '/'}">
     <span v-for="i in circleNum" class="circle" :class="getClass(i)" :style="'top:'+getCirclePosition()+'%; left:'+getCirclePosition()+'%;'+'background-color:'+getCircleColor()+';'"></span>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
 <style scoped>
 #fuwafuwa {
   width: 100%;
-  height: 80vh;
+  height: 78vh;
   position: absolute;
   background-color: transparent;
   animation-duration: 3s;
@@ -70,6 +70,9 @@ export default {
 @media (max-width: 768px) {
   #fuwafuwa {
     height: 100vh;
+  }
+  #fuwafuwa.h80 {
+    height: 80vh;
   }
 }
 </style>

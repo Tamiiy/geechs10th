@@ -5,7 +5,6 @@
     <ul v-if="!isSp" class="menu fright">
       <router-link  v-for="m in menu" :to="m.path" exact><li><sub>{{ m.sub }}</sub><p><font :color="m.color">{{ m.font }}</font>{{ m.p }}</p><span :style="'background-color:'+m.color"></span></li></router-link>
     </ul>
-    <img class="logoGeechs" v-if="isSp" src="../assets/common/logo_geechs.png">
   </div>
   </header>
 </template>
@@ -88,6 +87,9 @@ header.fixed {
   }
   .container {
     padding: 0;
+  }
+  .logo {
+    height: 45px;
   }
   .logoGeechs {
     width: 20vw;

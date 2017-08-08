@@ -61,14 +61,14 @@ export default {
   height: 350px;
   display: inline-block;
   position: relative;
-  margin:0 -25px 0 -25px;
+  margin:0 -20px 0 -20px;
 }
 .card {
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
-  width: 180px;
+  width: 170px;
   height: 350px;
 }
 .card img {
@@ -81,20 +81,20 @@ export default {
 /*animate*/
 @keyframes flipInX {
   from {
-    transform: perspective(300px) rotate3d(1, 0, 0, 70deg);
+    transform: perspective(300px) rotate3d(0, 1, 0, 70deg);
     animation-timing-function: ease-in;
-    opacity: 0;
+    opacity: 0.25;
   }
   40% {
-    transform: perspective(300px) rotate3d(1, 0, 0, -4deg);
+    transform: perspective(300px) rotate3d(0, 1, 0, -4deg);
     animation-timing-function: ease-in;
   }
   60% {
-    transform: perspective(300px) rotate3d(1, 0, 0, 2deg);
+    transform: perspective(300px) rotate3d(0, 1, 0, 2deg);
     opacity: 1;
   }
   80% {
-    transform: perspective(300px) rotate3d(1, 0, 0, -1deg);
+    transform: perspective(300px) rotate3d(0, 1, 0, -1deg);
   }
   to {
     transform: perspective(300px);

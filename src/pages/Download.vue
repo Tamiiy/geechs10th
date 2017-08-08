@@ -1,5 +1,6 @@
 <template>
 <div id="download">
+  <Modal v-if="modalShow" @hide-modal="hideModal" modal-type="download" download-size="downloadSize"></Modal>
   <div class="upper">
   <div class="container cf">
     <img class="title" src="../assets/download/dl_title.png">
@@ -9,16 +10,16 @@
   <div class="container cf">
     <div class="right">
     <h3>10周年記念<br v-if="isSp">「カクテル王子」<br/>特別デザインの<br v-if="isSp">壁紙をプレゼント！</h3>
-      <p class="big">ご自分の機種に合 わせてダウンロードしてご利用ください。</p>
+      <p class="big">ご自身の機種に合わせてダウンロードしてご利用ください。</p>
       <p class="caution">※PCでもダウンロードはできますが、<br/>
 スマートフォン用サイズのみの配布になっております。</p>
       
       <div v-if="!isSp">
         <h4>カクテル王子（プリンス）キャラクター集合！</h4>
         <div class="btns">
-          <span>iPhone7</span>
-          <span>iPhonePlus</span>
-          <span>Android</span>
+          <span v-on:click="modalShow = true; downloadSize = 'ipn7'">iPhone7</span>
+          <span v-on:click="">iPhonePlus</span>
+          <span v-on:click="">Android</span>
         </div>
 
         <div class="share">
@@ -51,9 +52,16 @@
 export default {
   name: 'message',
   data () {
-    return {}
+    return {
+      modalShow: false,
+      downloadSize: null
+    }
   },
-  methods: {}
+  methods: {
+    hideModal: function () {
+      this.modalShow = false
+    }
+  }
 }
 </script>
 

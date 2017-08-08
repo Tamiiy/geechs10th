@@ -1,14 +1,18 @@
 <template>
   <footer class="cf" :class="{'none': $route.path === '/'}">
     <div class="fright">
-      <a href="http://www.facebook.com/share.php?u=https://geechs.com/" v-on:click="fbShare" rel="nofollow">
+      <a href="https://www.facebook.com/geechs.inc/?ref=ts&fref=ts" target="_blank">
         <img class="social fb" src="../assets/common/icon_fb.png">
       </a>
-      <img class="social tw" src="../assets/common/icon_tw.png">
-      <ul class="corporate">
-        <li><img src="../assets/common/logo_geechs.png"></li>
-        <li>コーポレートサイト →</li>
-      </ul>
+      <a href="https://twitter.com/geechs_pr" target="_blank">
+        <img class="social tw" src="../assets/common/icon_tw.png">
+      </a>
+      <a href="https://geechs.com" target="_blank">
+        <ul class="corporate">
+          <li><img src="../assets/common/logo_geechs.png"></li>
+          <li>コーポレートサイト →</li>
+        </ul>
+      </a>
     </div>
     <p class="fleft">Copyright (C) 2013 geechs Inc. All rights reserved</p>
   </footer>
@@ -48,6 +52,11 @@ ul.corporate {
   height: 30px;
   display: table;
   float: left;
+  opacity: 1;
+}
+ul.corporate:hover {
+  opacity: 0.7;
+  transition: opacity .3s;
 }
 ul.corporate li {
   margin: 0;
@@ -55,6 +64,7 @@ ul.corporate li {
   font-size: 12px;
   display: table-cell;
   vertical-align: middle;
+  color: #6e6e6e;
 }
 ul.corporate li:first-child {
   border-right: 1px solid #AAA;
@@ -67,6 +77,11 @@ img.social {
   height: 26px;
   vertical-align: middle;
   margin: 2px 0 2px 10px;
+  opacity: 1;
+}
+img.social:hover {
+  opacity: 0.7;
+  transition: opacity .3s;
 }
 
 /*for SP*/

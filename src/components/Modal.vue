@@ -1,17 +1,21 @@
 <template>
   <transition name="fade">
   <div id="modal">
-    <span v-if="isSp" class="cancel sp" v-on:click="hideModal"></span>
-    <div class="card cf">
-      <img src="../assets/news/temp_nws_img.jpg">
-      <div class="textBox">
-        <span v-if="!isSp" class="cancel" v-on:click="hideModal"></span>
-        <h2>タイトルタイトルタイトル</h2>
-        <p>文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章</p>
-        <a href="https://geechs.com/20160823_9th_anniversary/" target="_blank"><span class="more">more...</span></a>
+    <div v-if="modalType == 'top'">
+      <span v-if="isSp" class="cancel sp" v-on:click="hideModal"></span>
+      <div class="card cf">
+        <img src="../assets/news/temp_nws_img.jpg">
+        <div class="textBox">
+          <span v-if="!isSp" class="cancel" v-on:click="hideModal"></span>
+          <h2>タイトルタイトルタイトル</h2>
+          <p>文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章文章</p>
+          <a href="https://geechs.com/20160823_9th_anniversary/" target="_blank"><span class="more">more...</span></a>
+        </div>
       </div>
+      <a href="https://geechs.com/20160823_9th_anniversary/" target="_blank"><span class="btn">以前の10周年のイベントの様子はこちら！</span></a>
     </div>
-    <a href="https://geechs.com/20160823_9th_anniversary/" target="_blank"><span class="btn">以前の10周年のイベントの様子はこちら！</span></a>
+    <div v-if="modalType == 'download'">
+    </div>
   </div>
   </transition>
 </template>

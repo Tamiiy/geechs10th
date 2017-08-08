@@ -54,9 +54,14 @@ p {
   width: 210px;
   height: 180px;
   position: absolute;
-  bottom: 0;
   right: -30px;
   cursor: pointer;
+  animation: fadeInUp .8s ease 4s;
+  animation-fill-mode: both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; bottom: -30px; }
+  to { opacity: 1; bottom: 0; }
 }
 .pic {
   width: 200px;
