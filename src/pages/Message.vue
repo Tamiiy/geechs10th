@@ -12,8 +12,8 @@
   <div v-on:scroll="checkBottom" class="content">
   <div class="container">
     <img class="guide" src="../assets/message/msg_guide.png">
-    <h2>ギークス社員から皆様へ感謝のメッセージ。</h2>
-    <p>日ごろお世話になっている皆様へ、ひとりひとりから感謝の気持ちを伝えるメッセージ。<br/>ガチャをまわしてお読みください！</p>
+    <h2>日ごろお世話になっている皆様へ、<br/>ギークスの一人ひとりから<br v-if="isSp">感謝を伝えるメッセージを贈ります。</h2>
+    <p>ガチャをまわしてお読みください！</p>
     <transition-group name="staggered-fade" tag="ul" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" class="messageBox" :class="'col-'+cardNumCol()">
       <li v-for="i in (currentPage*cardTotalNum() >= cardDataNum ? cardDataNum : currentPage*cardTotalNum())" :key="i" :data-index="i">
         <img class="card" :src="require('../assets/cards/' + cardSrc(i))">

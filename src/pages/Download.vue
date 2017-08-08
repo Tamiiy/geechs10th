@@ -8,9 +8,8 @@
   <div class="content">
   <div class="container cf">
     <div class="right">
-      <h3>10周年を記念して、<br/>
-スマートフォン専用の<br v-if="isSp">壁紙をつくりました。</h3>
-      <p class="big">ご自分の機種に合わせてダウンロードしてご利用ください。</p>
+    <h3>10周年記念<br v-if="isSp">「カクテル王子」<br/>特別デザインの<br v-if="isSp">壁紙をプレゼント！</h3>
+      <p class="big">ご自分の機種に合 わせてダウンロードしてご利用ください。</p>
       <p class="caution">※PCでもダウンロードはできますが、<br/>
 スマートフォン用サイズのみの配布になっております。</p>
       

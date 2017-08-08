@@ -4,7 +4,7 @@
   <Modal v-if="modalShow" @hide-modal="hideModal" modal-type="top"></Modal>
   <div class="wrapper">
     <img class="catch" src="../assets/top/top_catch.png">
-    <p>皆さまに支えられて、ギークスは10周年を迎えました。<br />これまでも、これからも「感謝」を創造しつづけます。</p>
+    <p>皆さまに支えられて、ギークスは10周年を迎えました。<br />これまでも、これからも「感動」を創造し続けます。</p>
     <Pics></Pics>
     <div class="news" v-on:click="modalShow = true">
       <img class="pic" src="../assets/news/temp_nws_img.jpg">
