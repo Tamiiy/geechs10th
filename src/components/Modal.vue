@@ -14,7 +14,13 @@
       </div>
       <a href="https://geechs.com/20160823_9th_anniversary/" target="_blank"><span class="btn">以前の10周年のイベントの様子はこちら！</span></a>
     </div>
-    <div v-if="modalType == 'download'">
+    <div v-if="modalType == 'download'" class="dl">
+      <span class="cancel" v-on:click="hideModal"></span>
+      <img v-if="downloadSize == 'ipn7'" src="../assets/download/c_ipn7.jpg">
+      <img v-if="downloadSize == 'ipn7p'" src="../assets/download/c_ipn7p.jpg">
+      <img v-if="downloadSize == 'android'" class="android" src="../assets/download/c_android.jpg">
+      <span class="help" v-if="isSp">※画像を長押しして保存してね！</span>
+      <span class="help" v-else>※画像を右クリックして保存してね！</span>
     </div>
   </div>
   </transition>
@@ -24,7 +30,7 @@
 // import Utils from '../Utils'
 export default {
   name: 'modal',
-  props: ['modalType'],
+  props: ['modalType', 'downloadSize'],
   data () {
     return {
     }
@@ -76,9 +82,14 @@ p {
   right: 15px;
   top: 20px;
   width: 30px;
-  height: 30px;
+  height: 30px;.
   background: url(../assets/news/nws_icon_close_gray.png) no-repeat right top;
   cursor: pointer;
+}
+.dl .cancel {
+  background-image: url(../assets/news/nws_icon_close_white.png);
+  right: 30px;
+  top: 20px;
 }
 .more {
   position: absolute;
@@ -109,6 +120,20 @@ p {
   padding-right: 10px;
   cursor: pointer;
 }
+.dl img {
+  margin-top: 5vh;
+  height: 80vh;
+  width: auto;
+  max-width: 80vw;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.help {
+  margin-top: 10px;
+  display: block;
+  font-size: 0.9rem;
+  color: #FFF;
+  font-weight: bold;
+}
 /*for SP*/
 @media (max-width: 768px) {
   .card {
@@ -127,7 +152,16 @@ p {
     width: 100%;
   }
   .cancel.sp {
-    background-image: url(../assets/news/nws_icon_close_white.png) no-repeat right top;
+    background-image: url(../assets/news/nws_icon_close_white.png);
+  }
+  .dl .cancel {
+    right: 10px;
+    top: 10px;
+  }
+  .dl img.android {
+    height: auto;
+    max-width: 80vw;
+    margin-top: 23vh;
   }
 }
 </style>

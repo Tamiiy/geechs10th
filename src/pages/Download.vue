@@ -1,6 +1,6 @@
 <template>
 <div id="download">
-  <Modal v-if="modalShow" @hide-modal="hideModal" modal-type="download" download-size="downloadSize"></Modal>
+  <Modal v-if="modalShow" @hide-modal="hideModal" modal-type="download" :download-size="downloadSize"></Modal>
   <div class="upper">
   <div class="container cf">
     <img class="title" src="../assets/download/dl_title.png">
@@ -13,13 +13,13 @@
       <p class="big">ご自身の機種に合わせてダウンロードしてご利用ください。</p>
       <p class="caution">※PCでもダウンロードはできますが、<br/>
 スマートフォン用サイズのみの配布になっております。</p>
-      
+
       <div v-if="!isSp">
         <h4>カクテル王子（プリンス）キャラクター集合！</h4>
         <div class="btns">
-          <span v-on:click="modalShow = true; downloadSize = 'ipn7'">iPhone7</span>
-          <span v-on:click="">iPhonePlus</span>
-          <span v-on:click="">Android</span>
+          <span v-on:click="showModal('ipn7')">iPhone7</span>
+          <span v-on:click="showModal('ipn7p')">iPhonePlus</span>
+          <span v-on:click="showModal('android')">Android</span>
         </div>
 
         <div class="share">
@@ -28,14 +28,15 @@
           <img src="../assets/download/dl_tw.png">
         </div>
       </div>
+
     </div>
     <img src="../assets/download/dl_wallpaper.jpg" class="left">
     <div class="wall" v-if="isSp">
       <h4>カクテル王子（プリンス）キャラクター集合！</h4>
       <div class="btns">
-        <span>iPhone7</span>
-        <span>iPhonePlus</span>
-        <span>Android</span>
+        <span v-on:click="showModal('ipn7')">iPhone7</span>
+        <span v-on:click="showModal('ipn7p')">iPhonePlus</span>
+        <span v-on:click="showModal('android')">Android</span>
       </div>
       <div class="share">
         <label>このページをシェア!</label>
@@ -58,8 +59,12 @@ export default {
     }
   },
   methods: {
-    hideModal: function () {
+    hideModal () {
       this.modalShow = false
+    },
+    showModal (size) {
+      this.modalShow = true
+      this.downloadSize = size
     }
   }
 }
