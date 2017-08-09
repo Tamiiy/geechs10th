@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <ul class="menu">
-        <router-link v-for="m in menu" :to="m.path" v-on:click.native="is_menu_open = false">
+        <router-link v-for="m in menu" :to="m.path" v-on:click.native="changePage()">
           <li><p>{{ m.text }}</p></li>
         </router-link>
       </ul>
@@ -28,6 +28,10 @@ export default {
     }
   },
   methods: {
+    changePage () {
+      this.is_menu_open = false
+      window.scrollTop = 0
+    }
   }
 }
 </script>

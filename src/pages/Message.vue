@@ -3,11 +3,13 @@
   <div class="upper">
   <div class="container cf">
     <img class="title" src="../assets/message/msg_title.png">
-    <div class="machine" :class="{'active':is_activeMachine}" v-on:click="showCards()" v-if="(currentPage == 0) || !isSp">
-      <img class="machine__btn" src="../assets/message/msg_machine_btn.png">
-      <p class="machine__click" v-if="!is_activeMachine">Click!</p>
-      <img class="machine__help" src="../assets/message/msg_icon_pointer01.png" v-if="!is_activeMachine">
-    </div>
+    <transition name="shrink">
+      <div class="machine" :class="{'active':is_activeMachine}" v-on:click="showCards()" v-if="(currentPage == 0) || !isSp">
+        <img class="machine__btn" src="../assets/message/msg_machine_btn.png">
+        <p class="machine__click" v-if="!is_activeMachine">Click!</p>
+        <img class="machine__help" src="../assets/message/msg_icon_pointer01.png" v-if="!is_activeMachine">
+      </div>
+    </transition>
   </div>
   </div>
   <div v-on:scroll="checkBottom" class="content">
@@ -24,10 +26,12 @@
       <label>読んだメッセージ数</label>
       <span>{{ currentPage * cardTotalNum() }} / {{ cardDataNum + 1 }}</span>
     </div>
+    <transition name="fadeDelay">
     <div v-if="is_showMachine" class="machine sp" :class="{'active':is_activeMachine}" v-on:click="showCards()">
       <img class="machine__btn" src="../assets/message/msg_machine_btn.png">
       <img class="machine__help" src="../assets/message/msg_icon_pointer01.png">
     </div>
+    </transition>
   </div>
   </div>
 </div>
@@ -240,6 +244,21 @@ p {
   font-weight: bold;
   color: #ef7faf;
 }
+.shrink-leave-active {
+  opacity: 0;
+  height: 0 !important;
+  margin-top: 0 !important;
+  transition: height .3s, opacity .2s;
+}
+.fadeDelay-enter-active {
+  transition: opacity 1s ease 2s;
+}
+.fadeDelay-leave-active {
+  transition: opacity 1s;
+}
+.fadeDelay-enter, .fadeDelay-leave-to { /* leave-to が効かない */
+  opacity: 0;
+}
 
 /*for SP*/
 @media (max-width: 768px) {
@@ -306,7 +325,6 @@ p {
     height: 158px;
     width: 102px;
     left: calc(50% - 51px);
-    animation: show 1s ease-in-out 3s both;
   }
   .sp .machine__btn {
     width: 40px;
