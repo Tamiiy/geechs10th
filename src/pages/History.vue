@@ -155,7 +155,7 @@ section.sign label {
   font-size: 1.1rem;
 }
 .footBox {
-  background-color: #f7f7f7;
+  background-color: #fdfdfd;
   height: 360px;
   margin-top: -360px;
 }
