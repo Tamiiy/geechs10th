@@ -24,8 +24,9 @@
 
         <div class="share">
           <label>このページをシェア!</label>
-          <img src="../assets/download/dl_fb.png">
-          <img src="../assets/download/dl_tw.png">
+          <a href="http://www.facebook.com/share.php?u=https://10th.geechs.com/" rel="nofollow" target="_blank"><img src="../assets/download/dl_fb.png"></a>
+          <a href="http://twitter.com/share?url=https://10th.geechs.com/download&text=ギークス設立10周年記念！「カクテル王子（プリンス）」特別デザインの壁紙をプレゼント！ ｜
+ geechs 10th anniversary" target="_blank"><img src="../assets/download/dl_tw.png"></a>
         </div>
       </div>
 
@@ -65,6 +66,10 @@ export default {
     showModal (size) {
       this.modalShow = true
       this.downloadSize = size
+    },
+    fbShare (el) {
+      window.open(encodeURI(decodeURI(el.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes')
+      return false
     }
   }
 }
@@ -164,6 +169,10 @@ p.caution {
 .share > * {
   vertical-align: middle;
   margin-left: 5px;
+}
+.share a {
+  height: 45px;
+  display: inline-block;
 }
 .share label {
   color: #666666;

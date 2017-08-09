@@ -25,10 +25,6 @@ export default {
     return {}
   },
   methods: {
-    fbShare () {
-      window.open(encodeURI(decodeURI(this.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes')
-      return false
-    }
   }
 }
 </script>
