@@ -157,7 +157,7 @@ section.sign label {
 .footBox {
   background-color: #fdfdfd;
   height: 360px;
-  margin-top: -360px;
+  margin-top: -375px;
 }
 .footPic {
   background: url(../assets/history/pic4.jpg) no-repeat;
