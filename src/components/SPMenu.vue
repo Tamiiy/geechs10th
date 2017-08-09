@@ -30,7 +30,7 @@ export default {
   methods: {
     changePage () {
       this.is_menu_open = false
-      window.scrollTop = 0
+      window.scroll(0, 0)
     }
   }
 }
