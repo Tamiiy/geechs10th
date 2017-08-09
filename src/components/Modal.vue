@@ -82,7 +82,7 @@ p {
   right: 15px;
   top: 20px;
   width: 30px;
-  height: 30px;.
+  height: 30px;
   background: url(../assets/news/nws_icon_close_gray.png) no-repeat right top;
   cursor: pointer;
 }

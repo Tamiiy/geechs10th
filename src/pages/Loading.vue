@@ -1,12 +1,10 @@
 <template>
-<transition name="longFade">
 <div id="Loading">
   <div class="wrapper">
     <Fuwafuwa></Fuwafuwa>
     <img class="logo" src="../assets/common/10th_logo_large.png">
   </div>
 </div>
-</transition>
 </template>
 
 <script>
@@ -19,7 +17,7 @@ export default {
     let me = this
     setTimeout(function () {
       me.$router.push({path: 'top'})
-    }, 3000)
+    }, 4000)
   },
   methods: {
   }
@@ -43,9 +41,17 @@ export default {
   background-color: #FFF;
   width: 100vw;
   height: 100vh;
-  animation: show 1s ease-in-out alternate;
+  animation: fadeInOut 4s ease-in-out alternate;
+  animation-fill-mode: both;
   z-index: 0;
 }
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20%{ opacity: 1; }
+    70%{ opacity: 1; }
+  100% { opacity: 0; }
+}
+
 
 @keyframes vertical {
     0% { transform:translateY(-10px); }
@@ -56,7 +62,6 @@ img.logo {
   margin-top: 30vh;
   animation: vertical 2s ease-in-out infinite alternate;
 }
-
 @media (max-width: 768px) {
   img.logo {
     width: 40%;
